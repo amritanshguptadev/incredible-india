@@ -1,0 +1,2705 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+
+:root {
+  --saffron: #FF6B00;
+  --deep-saffron: #E55A00;
+  --india-green: #138808;
+  --navy: #000080;
+  --gold: #FFD700;
+  --cream: #FFF8F0;
+  --charcoal: #1a1a2e;
+  --glass: rgba(255, 255, 255, 0.08);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--charcoal);
+  color: var(--cream);
+  font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 3.5rem;
+  color: var(--gold);
+  letter-spacing: 3px;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: var(--cream);
+}
+
+h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  color: var(--saffron);
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-padding {
+  padding: 80px 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-gold {
+  color: var(--gold);
+}
+
+.text-saffron {
+  color: var(--saffron);
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  background: rgba(10, 10, 30, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.logo {
+  font-family: 'Cinzel', serif;
+  font-size: 1.4rem;
+  color: var(--gold);
+  cursor: pointer;
+  user-select: none;
+  letter-spacing: 2px;
+}
+
+.logo-accent {
+  color: var(--saffron);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--cream);
+  position: relative;
+  padding-bottom: 4px;
+  transition: var(--transition);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--saffron);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--saffron);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.burger span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: var(--cream);
+  margin: 5px 0;
+  transition: 0.3s ease;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .burger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    background: rgba(10, 10, 30, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .nav-links.open {
+    max-height: 400px;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+
+.burger.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .burger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+.footer {
+  background: linear-gradient(135deg, #0a0a1e 0%, #1a1a2e 100%);
+  border-top: 2px solid rgba(255, 215, 0, 0.3);
+  padding: 60px 0 20px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-col h4 {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+  display: inline-block;
+}
+
+.footer-col h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--saffron);
+}
+
+.footer-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  color: var(--gold);
+  letter-spacing: 2px;
+  margin-bottom: 0.75rem;
+}
+
+.footer-logo .logo-accent {
+  color: var(--saffron);
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.social-icons a {
+  font-size: 2rem;
+  color: var(--cream);
+  margin-right: 1rem;
+  display: inline-block;
+  transition: var(--transition);
+  line-height: 1;
+}
+
+.social-icons a:hover {
+  color: var(--saffron);
+  transform: scale(1.2);
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-links a {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: var(--saffron);
+  padding-left: 6px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 0.85rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+.contact-label {
+  font-weight: 600;
+  color: var(--gold);
+  min-width: 60px;
+  flex-shrink: 0;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-col h4::after {
+    width: 40px;
+  }
+}
+
+.hero {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #0f0c29, #302b63, #1a0a00, #24243e);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.particles-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: floatParticle 6s ease-in-out infinite;
+}
+
+@keyframes floatParticle {
+  0%,  100% { transform: translateY(0);     opacity: 0.6; }
+  50%        { transform: translateY(-30px); opacity: 1;   }
+}
+
+.particle:nth-child(1)  { top: 8%;  left: 12%;  animation-delay: 0s;    }
+.particle:nth-child(2)  { top: 15%; left: 78%;  animation-delay: 0.25s; }
+.particle:nth-child(3)  { top: 22%; left: 34%;  animation-delay: 0.5s;  }
+.particle:nth-child(4)  { top: 30%; left: 91%;  animation-delay: 0.75s; }
+.particle:nth-child(5)  { top: 38%; left: 55%;  animation-delay: 1s;    }
+.particle:nth-child(6)  { top: 45%; left: 5%;   animation-delay: 1.25s; }
+.particle:nth-child(7)  { top: 52%; left: 67%;  animation-delay: 1.5s;  }
+.particle:nth-child(8)  { top: 60%; left: 23%;  animation-delay: 1.75s; }
+.particle:nth-child(9)  { top: 68%; left: 84%;  animation-delay: 2s;    }
+.particle:nth-child(10) { top: 75%; left: 42%;  animation-delay: 2.25s; }
+.particle:nth-child(11) { top: 83%; left: 9%;   animation-delay: 2.5s;  }
+.particle:nth-child(12) { top: 90%; left: 60%;  animation-delay: 2.75s; }
+.particle:nth-child(13) { top: 5%;  left: 47%;  animation-delay: 3s;    }
+.particle:nth-child(14) { top: 18%; left: 95%;  animation-delay: 3.25s; }
+.particle:nth-child(15) { top: 28%; left: 17%;  animation-delay: 3.5s;  }
+.particle:nth-child(16) { top: 40%; left: 73%;  animation-delay: 3.75s; }
+.particle:nth-child(17) { top: 55%; left: 38%;  animation-delay: 4s;    }
+.particle:nth-child(18) { top: 63%; left: 2%;   animation-delay: 4.25s; }
+.particle:nth-child(19) { top: 72%; left: 88%;  animation-delay: 4.5s;  }
+.particle:nth-child(20) { top: 80%; left: 50%;  animation-delay: 4.75s; }
+.particle:nth-child(21) { top: 12%; left: 62%;  animation-delay: 5s;    }
+.particle:nth-child(22) { top: 35%; left: 28%;  animation-delay: 5.25s; }
+.particle:nth-child(23) { top: 48%; left: 82%;  animation-delay: 5.5s;  }
+.particle:nth-child(24) { top: 87%; left: 31%;  animation-delay: 5.75s; }
+.particle:nth-child(25) { top: 95%; left: 76%;  animation-delay: 6s;    }
+
+.chakra-bg {
+  position: absolute;
+  right: -50px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: spin 30s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes spin {
+  from { transform: translateY(-50%) rotate(0deg);   }
+  to   { transform: translateY(-50%) rotate(360deg); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 1.5rem;
+}
+
+.hero-label {
+  display: inline-block;
+  background: rgba(255, 107, 0, 0.2);
+  border: 1px solid var(--saffron);
+  color: var(--saffron);
+  padding: 6px 20px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.hero-content h1 {
+  font-size: 4.5rem;
+  font-family: 'Cinzel', serif;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: var(--gold);
+}
+
+.hero-content h1 span {
+  color: var(--saffron);
+  text-shadow: 0 0 30px rgba(255, 107, 0, 0.5);
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 550px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.8;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: var(--transition);
+  cursor: pointer;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #FF6B00, #E55A00);
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(255, 107, 0, 0.4);
+  color: #fff;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--gold);
+  border: 2px solid var(--gold);
+}
+
+.btn-outline:hover {
+  background: var(--gold);
+  color: var(--charcoal);
+  transform: translateY(-3px);
+}
+
+.hero-stats {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-family: 'Cinzel', serif;
+  color: var(--gold);
+  display: block;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .hero-stats {
+    gap: 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+    margin: 6px 6px;
+  }
+
+  .chakra-bg {
+    right: -120px;
+    opacity: 0.07;
+  }
+}
+
+.destinations-preview {
+  padding: 80px 0;
+}
+
+.section-header {
+  text-align: center;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--saffron);
+  border-bottom: 2px solid var(--saffron);
+  padding-bottom: 4px;
+  margin-bottom: 1rem;
+}
+
+.section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.section-header p {
+  max-width: 500px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.dest-card {
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.dest-card:hover {
+  transform: translateY(-12px);
+}
+
+.card-jaipur:hover   { box-shadow: 0 25px 60px rgba(168, 85, 247, 0.30); }
+.card-goa:hover      { box-shadow: 0 25px 60px rgba(0, 147, 233, 0.30);  }
+.card-varanasi:hover { box-shadow: 0 25px 60px rgba(248, 151, 30, 0.35); }
+.card-kerala:hover   { box-shadow: 0 25px 60px rgba(17, 153, 142, 0.30); }
+.card-ladakh:hover   { box-shadow: 0 25px 60px rgba(142, 84, 233, 0.30); }
+.card-rishikesh:hover{ box-shadow: 0 25px 60px rgba(56, 239, 125, 0.25); }
+.card-hampi:hover    { box-shadow: 0 25px 60px rgba(201, 75, 75, 0.30);  }
+.card-kutch:hover    { box-shadow: 0 25px 60px rgba(201, 214, 255, 0.20);}
+.card-andaman:hover  { box-shadow: 0 25px 60px rgba(0, 180, 219, 0.30);  }
+.card-meghalaya:hover{ box-shadow: 0 25px 60px rgba(137, 247, 254, 0.25);}
+
+.card-art {
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-jaipur   .card-art { background: linear-gradient(135deg, #ff9a9e, #fad0c4, #a855f7); }
+.card-goa      .card-art { background: linear-gradient(135deg, #0093E9, #80D0C7, #00c6ff); }
+.card-varanasi .card-art { background: linear-gradient(135deg, #f7971e, #ffd200, #e85d04); }
+.card-kerala   .card-art { background: linear-gradient(135deg, #134e5e, #71b280, #11998e); }
+.card-ladakh   .card-art { background: linear-gradient(135deg, #4776E6, #8E54E9, #a8edea); }
+.card-rishikesh .card-art{ background: linear-gradient(135deg, #11998e, #38ef7d, #1a6b3a); }
+.card-hampi    .card-art { background: linear-gradient(135deg, #c94b4b, #4b134f, #e07b39); }
+.card-kutch    .card-art { background: linear-gradient(135deg, #e0e0e0, #c9d6ff, #e2e2e2); }
+.card-andaman  .card-art { background: linear-gradient(135deg, #00b4db, #0083b0, #48c6ef); }
+.card-meghalaya .card-art{ background: linear-gradient(135deg, #4ca1af, #2c3e50, #89f7fe); }
+
+.card-art::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: rgba(10, 10, 30, 1);
+  clip-path: polygon(
+    0 60%, 15% 30%, 30% 50%, 45% 20%,
+    60% 45%, 75% 15%, 90% 40%, 100% 20%,
+    100% 100%, 0 100%
+  );
+}
+
+.card-info {
+  padding: 1.5rem;
+}
+
+.card-info h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 0.5rem;
+}
+
+.card-info p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.card-link {
+  color: var(--saffron);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: gap 0.3s ease;
+}
+
+.card-link span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.card-link:hover span {
+  transform: translateX(5px);
+}
+
+.card-link:hover {
+  color: var(--gold);
+}
+
+@media (max-width: 768px) {
+  .section-header h2 {
+    font-size: 2.2rem;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.quote-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, rgba(255, 107, 0, 0.1), rgba(0, 0, 0, 0));
+  border-left: 4px solid var(--saffron);
+}
+
+.quote-section blockquote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 2rem;
+  color: var(--cream);
+  max-width: 750px;
+  margin: 0 auto;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.quote-section cite {
+  display: block;
+  margin-top: 1.5rem;
+  color: var(--gold);
+  font-size: 1rem;
+  letter-spacing: 2px;
+  font-style: normal;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .quote-section blockquote {
+    font-size: 1.4rem;
+  }
+}
+
+.page-hero {
+  height: 50vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 70px;
+}
+
+.page-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 1.5rem;
+}
+
+.page-hero h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 3rem;
+  color: var(--gold);
+  letter-spacing: 3px;
+  margin-bottom: 0;
+}
+
+.page-hero p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 1rem;
+  line-height: 1.7;
+}
+
+.destinations-main {
+  padding: 80px 0;
+}
+
+.dest-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 6rem;
+  padding-bottom: 6rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dest-block:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.dest-block--reverse {
+  direction: rtl;
+}
+
+.dest-block--reverse > * {
+  direction: ltr;
+}
+
+.dest-visual {
+  height: 450px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+
+.dest-visual.card-jaipur    { background: linear-gradient(135deg, #ff9a9e, #fad0c4, #a855f7); }
+.dest-visual.card-goa       { background: linear-gradient(135deg, #0093E9, #80D0C7, #00c6ff); }
+.dest-visual.card-varanasi  { background: linear-gradient(135deg, #f7971e, #ffd200, #e85d04); }
+.dest-visual.card-kerala    { background: linear-gradient(135deg, #134e5e, #71b280, #11998e); }
+.dest-visual.card-ladakh    { background: linear-gradient(135deg, #4776E6, #8E54E9, #a8edea); }
+.dest-visual.card-rishikesh { background: linear-gradient(135deg, #11998e, #38ef7d, #1a6b3a); }
+.dest-visual.card-hampi     { background: linear-gradient(135deg, #c94b4b, #4b134f, #e07b39); }
+.dest-visual.card-kutch     { background: linear-gradient(135deg, #e0e0e0, #c9d6ff, #e2e2e2); }
+.dest-visual.card-andaman   { background: linear-gradient(135deg, #00b4db, #0083b0, #48c6ef); }
+.dest-visual.card-meghalaya { background: linear-gradient(135deg, #4ca1af, #2c3e50, #89f7fe); }
+
+.dest-visual-inner {
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+
+.dest-icon {
+  font-size: 5rem;
+  line-height: 1;
+  filter: drop-shadow(0 4px 20px rgba(0,0,0,0.4));
+}
+
+.dest-city-name {
+  font-family: 'Cinzel', serif;
+  font-size: 4rem;
+  color: rgba(255, 255, 255, 0.15);
+  letter-spacing: 8px;
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.dest-details {
+  padding: 1rem 0;
+}
+
+.dest-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--saffron);
+  border: 1px solid var(--saffron);
+  padding: 3px 12px;
+  border-radius: 50px;
+  margin-bottom: 0.75rem;
+}
+
+.dest-details h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+}
+
+.dest-tagline {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.dest-meta {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--glass);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.meta-item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.meta-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.meta-item strong {
+  color: var(--gold);
+  display: block;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.meta-item div {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.5;
+}
+
+.dest-attractions,
+.dest-food {
+  margin-bottom: 1.5rem;
+}
+
+.dest-attractions h4,
+.dest-food h4 {
+  color: var(--saffron);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.dest-attractions ul {
+  padding-left: 1.2rem;
+  list-style: disc;
+}
+
+.dest-attractions li {
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.food-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.food-tags span {
+  background: rgba(255, 107, 0, 0.15);
+  border: 1px solid rgba(255, 107, 0, 0.4);
+  color: var(--saffron);
+  padding: 4px 14px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-family: 'Poppins', sans-serif;
+  transition: background 0.3s ease;
+}
+
+.food-tags span:hover {
+  background: rgba(255, 107, 0, 0.3);
+}
+
+.dest-story {
+  margin-top: 1.5rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  border-left: 3px solid var(--gold);
+  padding-left: 1rem;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+  .dest-block,
+  .dest-block--reverse {
+    grid-template-columns: 1fr;
+    direction: ltr;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .dest-visual {
+    height: 300px;
+  }
+
+  .dest-city-name {
+    font-size: 2.5rem;
+  }
+
+  .dest-details h2 {
+    font-size: 2rem;
+  }
+
+  .page-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .dest-meta {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.tips-section {
+  padding: 80px 0;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.tip-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.tip-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 107, 0, 0.06) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.tip-card:hover::before {
+  opacity: 1;
+}
+
+.tip-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 107, 0, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.tip-icon-wrap {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 107, 0, 0.2),
+    rgba(255, 107, 0, 0.05)
+  );
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255, 107, 0, 0.3);
+  flex-shrink: 0;
+}
+
+.tip-icon {
+  width: 30px;
+  height: 30px;
+  stroke: var(--saffron);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.tip-card h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 1.2rem;
+}
+
+.tip-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.tip-list li {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  padding: 0.4rem 0 0.4rem 1.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+.tip-list li:last-child {
+  border-bottom: none;
+}
+
+.tip-list li::before {
+  content: 'â€º';
+  position: absolute;
+  left: 0;
+  color: var(--saffron);
+  font-weight: bold;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tip-card {
+    padding: 1.8rem;
+  }
+}
+
+.gallery-section {
+  padding: 80px 0;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 180px);
+  gap: 6px;
+  margin-top: 4rem;
+}
+
+.g-panel-1  { grid-column: 1/3; grid-row: 1/3; } 
+.g-panel-2  { grid-column: 3/5; grid-row: 1/2; } 
+.g-panel-3  { grid-column: 3/4; grid-row: 2/3; } 
+.g-panel-4  { grid-column: 4/5; grid-row: 2/3; } 
+.g-panel-5  { grid-column: 1/2; grid-row: 3/5; } 
+.g-panel-6  { grid-column: 2/4; grid-row: 3/4; } 
+.g-panel-7  { grid-column: 4/5; grid-row: 3/5; } 
+.g-panel-8  { grid-column: 2/3; grid-row: 4/5; } 
+.g-panel-9  { grid-column: 3/4; grid-row: 4/5; } 
+.g-panel-10 { grid-column: 1/2; grid-row: 5/6; } 
+.g-panel-11 { grid-column: 2/4; grid-row: 5/6; } 
+.g-panel-12 { grid-column: 4/5; grid-row: 5/6; } 
+
+.g-panel {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.g-panel:hover .g-art {
+  transform: scale(1.06);
+}
+
+.g-art {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.5s ease;
+}
+
+.g-art svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.g-art-valley-flowers  { background: linear-gradient(160deg, #a18cd1 0%, #d4a8d4 50%, #fbc2eb 100%); }
+.g-art-pangong         { background: linear-gradient(180deg, #1a3a6e 0%, #2b5797 45%, #5b9bd5 50%, #8ec5fc 100%); }
+.g-art-varanasi-dawn   { background: linear-gradient(160deg, #e85d04 0%, #f7971e 50%, #ffd200 100%); }
+.g-art-rann-moon       { background: linear-gradient(180deg, #2d2a4a 0%, #6b638a 40%, #c9c4e0 80%, #f0eef8 100%); }
+.g-art-kerala-backwaters { background: linear-gradient(180deg, #134e5e 0%, #1d7a5a 50%, #11998e 100%); }
+.g-art-hampi-ruins     { background: linear-gradient(160deg, #c94b4b 0%, #a0522d 50%, #e07b39 100%); }
+.g-art-spiti-cold      { background: linear-gradient(180deg, #c9d6e3 0%, #8fa8c8 50%, #e8eef5 100%); }
+.g-art-sundarbans      { background: linear-gradient(160deg, #0d3d1f 0%, #1a6b3a 60%, #134e5e 100%); }
+.g-art-meghalaya-falls { background: linear-gradient(180deg, #4a5568 0%, #718096 40%, #1a6b5a 70%, #0d6e6e 100%); }
+.g-art-andaman-sea     { background: linear-gradient(180deg, #0083b0 0%, #00b4db 40%, #48c6ef 70%, #a8edea 100%); }
+.g-art-rajasthan-dunes { background: linear-gradient(160deg, #f7971e 0%, #ffd200 50%, #e8a020 100%); }
+.g-art-rishikesh-river { background: linear-gradient(180deg, #1a6b3a 0%, #2d8a50 45%, #4fc3f7 55%, #b3e5fc 100%); }
+
+.g-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
+  padding: 1.5rem 1rem 1rem;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+.g-panel:hover .g-caption {
+  transform: translateY(0);
+}
+
+.g-caption h4 {
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.g-caption p {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.78rem;
+  font-style: italic;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(8, 200px);
+  }
+  .g-panel-1  { grid-column: 1/3; grid-row: 1/3; }
+  .g-panel-2  { grid-column: 1/2; grid-row: 3/4; }
+  .g-panel-3  { grid-column: 2/3; grid-row: 3/4; }
+  .g-panel-4  { grid-column: 1/2; grid-row: 4/5; }
+  .g-panel-5  { grid-column: 2/3; grid-row: 4/5; }
+  .g-panel-6  { grid-column: 1/3; grid-row: 5/6; }
+  .g-panel-7  { grid-column: 1/2; grid-row: 6/7; }
+  .g-panel-8  { grid-column: 2/3; grid-row: 6/7; }
+  .g-panel-9  { grid-column: 1/2; grid-row: 7/8; }
+  .g-panel-10 { grid-column: 2/3; grid-row: 7/8; }
+  .g-panel-11 { grid-column: 1/3; grid-row: 8/9; }
+  .g-panel-12 { grid-column: 1/3; grid-row: 9/10; }
+
+  .gallery-grid {
+    grid-template-rows: repeat(9, 180px);
+  }
+
+  .g-caption {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: unset;
+  }
+  .g-panel,
+  .g-panel-1, .g-panel-2, .g-panel-3, .g-panel-4,
+  .g-panel-5, .g-panel-6, .g-panel-7, .g-panel-8,
+  .g-panel-9, .g-panel-10,.g-panel-11,.g-panel-12 {
+    grid-column: 1/2;
+    grid-row: unset;
+    height: 200px;
+  }
+}
+
+.contact-section {
+  padding: 80px 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.contact-info {
+  position: relative;
+}
+
+.india-map-bg {
+  position: absolute;
+  top: -20px;
+  right: -40px;
+  width: 280px;
+  height: auto;
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact-info h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-intro {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.info-block {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.info-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  background: rgba(255, 107, 0, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 107, 0, 0.3);
+}
+
+.info-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--saffron);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.info-block h4 {
+  color: var(--cream);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.info-block p {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.social-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.social-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  font-family: 'Poppins', sans-serif;
+  transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
+}
+
+.social-pill svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.social-pill:hover {
+  border-color: var(--saffron);
+  color: var(--saffron);
+  background: rgba(255, 107, 0, 0.08);
+}
+
+.contact-form-wrap {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 2.5rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.form-group input,
+.form-group textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+  color: var(--cream);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  padding: 0.8rem 0;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.3s ease;
+  border-radius: 0;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.92rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-bottom-color: var(--saffron);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.7;
+}
+
+.btn-submit {
+  width: 100%;
+  justify-content: center;
+  padding: 16px;
+  font-size: 1.05rem;
+  margin-top: 0.5rem;
+  border-radius: 12px;
+  display: block;
+  text-align: center;
+}
+
+.form-success,
+.form-error {
+  display: none;
+  margin-top: 1rem;
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+}
+
+.form-success {
+  background: rgba(19, 136, 8, 0.15);
+  border: 1px solid rgba(19, 136, 8, 0.4);
+  color: #6fcf6f;
+}
+
+.form-error {
+  background: rgba(255, 107, 0, 0.12);
+  border: 1px solid rgba(255, 107, 0, 0.4);
+  color: var(--saffron);
+}
+
+.form-success.visible,
+.form-error.visible {
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .india-map-bg {
+    opacity: 0.04;
+    width: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .contact-form-wrap {
+    padding: 1.5rem;
+  }
+}
+
+.navbar.scrolled {
+  height: 58px;
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  background: rgba(10, 10, 30, 0.98);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  border-bottom-color: rgba(255, 215, 0, 0.35);
+}
+
+@media (max-width: 768px) {
+  .nav-links.nav-open {
+    max-height: 400px;
+  }
+
+  .burger.burger-active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .burger.burger-active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger.burger-active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+.nav-links a.active {
+  color: var(--saffron);
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+section {
+  overflow-x: hidden;
+}
+
+@media (max-width: 1024px) {
+
+.cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+.dest-block {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+.dest-block--reverse {
+    direction: ltr;
+  }
+
+  .dest-block--reverse > * {
+    direction: ltr;
+  }
+
+.contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+.gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+
+.g-panel-1,  .g-panel-2,  .g-panel-3,
+  .g-panel-4,  .g-panel-5,  .g-panel-6,
+  .g-panel-7,  .g-panel-8,  .g-panel-9,
+  .g-panel-10, .g-panel-11, .g-panel-12 {
+    grid-column: auto;
+    grid-row:    auto;
+    height: 220px;
+  }
+
+.hero-content h1 {
+    font-size: 3.2rem;
+  }
+
+.footer .container .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+
+.navbar {
+    height: 60px;
+  }
+
+.nav-links {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: rgba(10, 10, 30, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+  }
+
+  .nav-links.nav-open {
+    max-height: 400px;
+    padding: 1.5rem 0;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+
+.burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    cursor: pointer;
+  }
+
+.burger.burger-active span:first-child {
+    transform: rotate(45deg) translate(5px, 6px);
+  }
+
+  .burger.burger-active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  .burger.burger-active span:last-child {
+    transform: rotate(-45deg) translate(5px, -6px);
+  }
+
+.hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+.page-hero h1 {
+    font-size: 2rem;
+  }
+
+.tips-grid {
+    grid-template-columns: 1fr;
+  }
+
+.dest-visual {
+    height: 300px;
+  }
+
+  .dest-city-name {
+    font-size: 2.5rem;
+  }
+
+.g-caption {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+
+.hero-content h1 {
+    font-size: 2rem;
+  }
+
+.hero .btn,
+  .hero-buttons .btn {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+    display: block;
+    width: 100%;
+    margin: 0.5rem 0;
+    text-align: center;
+  }
+
+.form-row {
+    flex-direction: column;
+  }
+
+.footer .container .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+.gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .g-panel-1,  .g-panel-2,  .g-panel-3,
+  .g-panel-4,  .g-panel-5,  .g-panel-6,
+  .g-panel-7,  .g-panel-8,  .g-panel-9,
+  .g-panel-10, .g-panel-11, .g-panel-12 {
+    grid-column: auto;
+    grid-row:    auto;
+    height: auto;
+    min-height: 200px;
+  }
+
+.cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+.section-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .page-hero h1 {
+    font-size: 1.8rem;
+  }
+}
+
+#page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--charcoal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#page-loader.loader-hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#page-loader .loader-chakra {
+  animation: spin 2s linear infinite;
+}
+
+#page-loader .loader-text {
+  font-family: 'Cinzel', serif;
+  font-size: 1.4rem;
+  color: var(--gold);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #FF6B00, #E55A00);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #FF8C00, #FF6B00);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #FF6B00 #1a1a2e;
+}
+
+::selection {
+  background: rgba(255, 107, 0, 0.3);
+  color: #fff;
+}
+
+::-moz-selection {
+  background: rgba(255, 107, 0, 0.3);
+  color: #fff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+*:focus-visible {
+  outline: 2px solid #FF6B00;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.dest-card {
+  isolation: isolate; 
+}
+
+.dest-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(
+    105deg,
+    transparent  40%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent  60%
+  );
+  background-size: 200% 100%;
+  background-position: 200% 0;
+  transition: background-position 0.6s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dest-card:hover::after {
+  background-position: -200% 0;
+}
+
+.card-jaipur .card-art {
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(10,10,30,0.65) 100%),
+    url('../images/jaipur.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.card-goa .card-art {
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,0.10) 0%, rgba(10,10,30,0.65) 100%),
+    url('../images/goa.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.card-varanasi .card-art {
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,0.10) 0%, rgba(10,10,30,0.65) 100%),
+    url('../images/varanasi.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.card-kerala .card-art {
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,0.10) 0%, rgba(10,10,30,0.65) 100%),
+    url('../images/kerala.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.card-ladakh .card-art {
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,0.10) 0%, rgba(10,10,30,0.65) 100%),
+    url('../images/ladakh.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.card-rishikesh .card-art {
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,0.10) 0%, rgba(10,10,30,0.65) 100%),
+    url('../images/rishikesh.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.card-hampi .card-art {
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,0.10) 0%, rgba(10,10,30,0.65) 100%),
+    url('../images/hampi.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.card-kutch .card-art {
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,0.10) 0%, rgba(10,10,30,0.65) 100%),
+    url('../images/kutch.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.card-andaman .card-art {
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,0.10) 0%, rgba(10,10,30,0.65) 100%),
+    url('../images/andaman.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.card-meghalaya .card-art {
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,0.10) 0%, rgba(10,10,30,0.65) 100%),
+    url('../images/meghalaya.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.dest-visual.card-jaipur {
+  background-image:
+    linear-gradient(135deg, rgba(201,75,75,0.45) 0%, rgba(10,10,30,0.72) 100%),
+    url('../images/jaipur.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.dest-visual.card-goa {
+  background-image:
+    linear-gradient(135deg, rgba(0,147,233,0.38) 0%, rgba(10,10,30,0.72) 100%),
+    url('../images/goa.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.dest-visual.card-varanasi {
+  background-image:
+    linear-gradient(135deg, rgba(248,151,30,0.38) 0%, rgba(10,10,30,0.72) 100%),
+    url('../images/varanasi.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.dest-visual.card-kerala {
+  background-image:
+    linear-gradient(135deg, rgba(17,153,142,0.38) 0%, rgba(10,10,30,0.72) 100%),
+    url('../images/kerala.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.dest-visual.card-ladakh {
+  background-image:
+    linear-gradient(135deg, rgba(71,118,230,0.38) 0%, rgba(10,10,30,0.72) 100%),
+    url('../images/ladakh.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.dest-visual.card-rishikesh {
+  background-image:
+    linear-gradient(135deg, rgba(17,153,142,0.38) 0%, rgba(10,10,30,0.72) 100%),
+    url('../images/rishikesh.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.dest-visual.card-hampi {
+  background-image:
+    linear-gradient(135deg, rgba(201,75,75,0.38) 0%, rgba(10,10,30,0.72) 100%),
+    url('../images/hampi.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.dest-visual.card-kutch {
+  background-image:
+    linear-gradient(135deg, rgba(201,214,255,0.28) 0%, rgba(10,10,30,0.72) 100%),
+    url('../images/kutch.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.dest-visual.card-andaman {
+  background-image:
+    linear-gradient(135deg, rgba(0,180,219,0.38) 0%, rgba(10,10,30,0.72) 100%),
+    url('../images/andaman.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.dest-visual.card-meghalaya {
+  background-image:
+    linear-gradient(135deg, rgba(76,161,175,0.38) 0%, rgba(10,10,30,0.72) 100%),
+    url('../images/meghalaya.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.g-art-valley-flowers {
+  background-image:
+    linear-gradient(180deg, rgba(161,140,209,0.45) 0%, rgba(10,10,30,0.5) 100%),
+    url('../images/valley.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.g-art-pangong {
+  background-image:
+    linear-gradient(180deg, rgba(26,58,110,0.45) 0%, rgba(10,10,30,0.5) 100%),
+    url('../images/pangong.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.g-art-varanasi-dawn {
+  background-image:
+    linear-gradient(180deg, rgba(248,151,30,0.4) 0%, rgba(10,10,30,0.55) 100%),
+    url('../images/varanasi.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.g-art-rann-moon {
+  background-image:
+    linear-gradient(180deg, rgba(45,42,74,0.45) 0%, rgba(240,238,248,0.25) 100%),
+    url('../images/hampi.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.g-art-kerala-backwaters {
+  background-image:
+    linear-gradient(180deg, rgba(19,78,94,0.45) 0%, rgba(10,10,30,0.5) 100%),
+    url('../images/kerala.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.g-art-hampi-ruins {
+  background-image:
+    linear-gradient(160deg, rgba(201,75,75,0.45) 0%, rgba(10,10,30,0.55) 100%),
+    url('../images/hampi.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.g-art-spiti-cold {
+  background-image:
+    linear-gradient(180deg, rgba(201,214,227,0.4) 0%, rgba(10,10,30,0.55) 100%),
+    url('../images/ladakh.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.g-art-sundarbans {
+  background-image:
+    linear-gradient(160deg, rgba(13,61,31,0.5) 0%, rgba(10,10,30,0.55) 100%),
+    url('../images/hampi.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.g-art-meghalaya-falls {
+  background-image:
+    linear-gradient(180deg, rgba(74,85,104,0.45) 0%, rgba(10,10,30,0.55) 100%),
+    url('../images/meghalaya.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.g-art-andaman-sea {
+  background-image:
+    linear-gradient(180deg, rgba(0,131,176,0.4) 0%, rgba(10,10,30,0.55) 100%),
+    url('../images/andaman.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.g-art-rajasthan-dunes {
+  background-image:
+    linear-gradient(160deg, rgba(247,151,30,0.4) 0%, rgba(10,10,30,0.55) 100%),
+    url('../images/rajasthan.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.g-art-rishikesh-river {
+  background-image:
+    linear-gradient(180deg, rgba(26,107,58,0.4) 0%, rgba(10,10,30,0.55) 100%),
+    url('../images/rishikesh.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-bg {
+  background-image:
+    linear-gradient(
+      -45deg,
+      rgba(15,12,41,0.88) 0%,
+      rgba(48,43,99,0.82) 35%,
+      rgba(26,10,0,0.85) 65%,
+      rgba(36,36,62,0.88) 100%
+    ),
+    url('../images/rajasthan.jpg');
+  background-size: 400% 400%, cover;
+  background-position: 0% 50%, center;
+  animation: gradientShift 15s ease infinite;
+}
+
+.page-hero .hero-bg {
+  background-image:
+    linear-gradient(180deg, rgba(255,107,0,0.72) 0%, rgba(200,60,0,0.85) 100%),
+    url('../images/hero-india.jpg');
+  background-size: cover;
+  background-position: center;
+  animation: none;
+}
+
+body {
+  background-color: #FFFAF5;
+  color: #3A3A3A;
+}
+
+.navbar {
+  background: rgba(255, 250, 245, 0.97) !important;
+  border-bottom: 1px solid rgba(220, 80, 0, 0.15) !important;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.07) !important;
+}
+.navbar.scrolled {
+  background: rgba(255, 250, 245, 0.99) !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.11) !important;
+}
+.logo            { color: #1A1A2E !important; }
+.logo-accent     { color: #E85D00 !important; }
+.nav-links a     { color: #3A3A3A !important; }
+.nav-links a:hover, .nav-links a.active { color: #E85D00 !important; }
+.nav-links a::after { background: #E85D00 !important; }
+.burger span     { background: #1A1A2E !important; }
+@media (max-width: 768px) {
+  .nav-links {
+    background: rgba(255,250,245,0.99) !important;
+  }
+  .nav-links a {
+    color: #3A3A3A !important;
+    border-bottom: 1px solid rgba(220,80,0,0.10) !important;
+  }
+}
+
+.hero-bg {
+  background-image:
+    linear-gradient(160deg,
+      rgba(220,55,0,0.78) 0%,
+      rgba(255,120,0,0.65) 45%,
+      rgba(180,10,10,0.78) 100%
+    ),
+    url('../images/rajasthan.jpg') !important;
+  background-size: 400% 400%, cover !important;
+  background-position: 0% 50%, center top !important;
+  animation: gradientShift 15s ease infinite !important;
+}
+.hero-content h1            { color: #FFFFFF !important; }
+.hero-content h1 span       { color: #FFE082 !important; text-shadow: 0 0 30px rgba(255,200,0,0.5) !important; }
+.hero-content p             { color: rgba(255,255,255,0.92) !important; }
+.hero-stats                 { border-top-color: rgba(255,255,255,0.28) !important; }
+.stat-number                { color: #FFE082 !important; }
+.stat-label                 { color: rgba(255,255,255,0.82) !important; }
+.btn-primary  { background: #FFFFFF !important; color: #D44E00 !important; border: none !important; font-weight: 700 !important; }
+.btn-primary:hover  { background: #FFE0C8 !important; color: #C03A00 !important; box-shadow: 0 10px 30px rgba(0,0,0,0.18) !important; }
+.btn-outline  { color: #FFFFFF !important; border-color: rgba(255,255,255,0.7) !important; background: transparent !important; }
+.btn-outline:hover  { background: rgba(255,255,255,0.18) !important; border-color: #FFFFFF !important; }
+
+.page-hero h1 { color: #FFFFFF !important; }
+.page-hero p  { color: rgba(255,255,255,0.90) !important; }
+
+.destinations-preview  { background-color: #FFFAF5; }
+.destinations-main     { background-color: #FFFAF5; }
+.gallery-section       { background-color: #FFFAF5; }
+.tips-section          { background-color: #FFF3E8; }
+.contact-section       { background-color: #FFF3E8; }
+.quote-section {
+  background: linear-gradient(135deg, #FFF3E8 0%, #FFE8D0 100%);
+  border-left: 4px solid #E85D00;
+}
+
+.section-header h2,
+.destinations-preview h2,
+.tips-section h2,
+.gallery-section h2,
+.contact-section h2  { color: #1A1A2E !important; }
+.section-header p    { color: #666 !important; }
+.section-tag         { color: #E85D00 !important; border-bottom-color: #E85D00 !important; }
+
+.quote-section blockquote { color: #1A1A2E !important; }
+.quote-section cite       { color: #C8860A !important; }
+
+.dest-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(220,80,0,0.12) !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07) !important;
+}
+.dest-card:hover {
+  box-shadow: 0 22px 50px rgba(220,80,0,0.22) !important;
+}
+.card-art::before { background: #FFFFFF !important; }
+.card-info h3     { color: #1A1A2E !important; font-size: 1.15rem !important; }
+.card-info p      { color: #666 !important; }
+.card-link        { color: #E85D00 !important; }
+.card-link:hover  { color: #B83D00 !important; }
+
+.card-jaipur   .card-art { background-image: linear-gradient(180deg,rgba(0,0,0,0.05) 0%,rgba(10,10,30,0.45) 100%), url('../images/jaipur.jpg') !important; }
+.card-goa      .card-art { background-image: linear-gradient(180deg,rgba(0,0,0,0.05) 0%,rgba(10,10,30,0.45) 100%), url('../images/goa.jpg') !important; }
+.card-varanasi .card-art { background-image: linear-gradient(180deg,rgba(0,0,0,0.05) 0%,rgba(10,10,30,0.45) 100%), url('../images/varanasi.jpg') !important; }
+.card-kerala   .card-art { background-image: linear-gradient(180deg,rgba(0,0,0,0.05) 0%,rgba(10,10,30,0.45) 100%), url('../images/kerala.jpg') !important; }
+.card-ladakh   .card-art { background-image: linear-gradient(180deg,rgba(0,0,0,0.05) 0%,rgba(10,10,30,0.45) 100%), url('../images/ladakh.jpg') !important; }
+.card-rishikesh .card-art{ background-image: linear-gradient(180deg,rgba(0,0,0,0.05) 0%,rgba(10,10,30,0.45) 100%), url('../images/rishikesh.jpg') !important; }
+.card-hampi    .card-art { background-image: linear-gradient(180deg,rgba(0,0,0,0.05) 0%,rgba(10,10,30,0.45) 100%), url('../images/hampi.jpg') !important; }
+.card-kutch    .card-art { background-image: linear-gradient(180deg,rgba(0,0,0,0.05) 0%,rgba(10,10,30,0.45) 100%), url('../images/kutch.jpg') !important; }
+.card-andaman  .card-art { background-image: linear-gradient(180deg,rgba(0,0,0,0.05) 0%,rgba(10,10,30,0.45) 100%), url('../images/andaman.jpg') !important; }
+.card-meghalaya .card-art{ background-image: linear-gradient(180deg,rgba(0,0,0,0.05) 0%,rgba(10,10,30,0.45) 100%), url('../images/meghalaya.jpg') !important; }
+
+.dest-visual.card-jaipur   { background-image: linear-gradient(135deg,rgba(200,70,0,0.38) 0%,rgba(10,10,30,0.65) 100%), url('../images/jaipur.jpg') !important; background-size: cover !important; background-position: center !important; }
+.dest-visual.card-goa      { background-image: linear-gradient(135deg,rgba(0,130,220,0.30) 0%,rgba(10,10,30,0.65) 100%), url('../images/goa.jpg') !important; background-size: cover !important; background-position: center !important; }
+.dest-visual.card-varanasi { background-image: linear-gradient(135deg,rgba(240,140,20,0.35) 0%,rgba(10,10,30,0.65) 100%), url('../images/varanasi.jpg') !important; background-size: cover !important; background-position: center !important; }
+.dest-visual.card-kerala   { background-image: linear-gradient(135deg,rgba(10,140,130,0.32) 0%,rgba(10,10,30,0.65) 100%), url('../images/kerala.jpg') !important; background-size: cover !important; background-position: center !important; }
+.dest-visual.card-ladakh   { background-image: linear-gradient(135deg,rgba(60,110,220,0.32) 0%,rgba(10,10,30,0.65) 100%), url('../images/ladakh.jpg') !important; background-size: cover !important; background-position: center !important; }
+.dest-visual.card-rishikesh{ background-image: linear-gradient(135deg,rgba(10,150,120,0.32) 0%,rgba(10,10,30,0.65) 100%), url('../images/rishikesh.jpg') !important; background-size: cover !important; background-position: center !important; }
+.dest-visual.card-hampi    { background-image: linear-gradient(135deg,rgba(200,70,0,0.32) 0%,rgba(10,10,30,0.65) 100%), url('../images/hampi.jpg') !important; background-size: cover !important; background-position: center !important; }
+.dest-visual.card-kutch    { background-image: linear-gradient(135deg,rgba(180,200,240,0.25) 0%,rgba(10,10,30,0.65) 100%), url('../images/kutch.jpg') !important; background-size: cover !important; background-position: center !important; }
+.dest-visual.card-andaman  { background-image: linear-gradient(135deg,rgba(0,170,210,0.30) 0%,rgba(10,10,30,0.65) 100%), url('../images/andaman.jpg') !important; background-size: cover !important; background-position: center !important; }
+.dest-visual.card-meghalaya{ background-image: linear-gradient(135deg,rgba(60,150,160,0.30) 0%,rgba(10,10,30,0.65) 100%), url('../images/meghalaya.jpg') !important; background-size: cover !important; background-position: center !important; }
+
+.dest-block            { border-bottom-color: rgba(220,80,0,0.12) !important; }
+.dest-tag              { background: rgba(220,80,0,0.10) !important; color: #E85D00 !important; border-color: rgba(220,80,0,0.25) !important; }
+.dest-info h2          { color: #1A1A2E !important; }
+.dest-info > p         { color: #555 !important; }
+.best-time             { background: rgba(220,80,0,0.06) !important; border-color: rgba(220,80,0,0.15) !important; }
+.best-time h4          { color: #C44E00 !important; }
+.best-time p           { color: #666 !important; }
+.attr-list li          { color: #555 !important; border-bottom-color: rgba(220,80,0,0.08) !important; }
+.attr-list li::before  { color: #E85D00 !important; }
+.food-chips span       { background: rgba(200,130,10,0.10) !important; color: #8B5E00 !important; border: 1px solid rgba(200,130,10,0.20) !important; }
+.dest-story            { background: rgba(220,80,0,0.05) !important; border-left: 3px solid #E85D00 !important; }
+.dest-story p          { color: #555 !important; }
+
+.tip-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(220,80,0,0.10) !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07) !important;
+}
+.tip-card h3            { color: #1A1A2E !important; }
+.tip-list li            { color: #555 !important; border-bottom-color: rgba(220,80,0,0.08) !important; }
+.tip-list li::before    { color: #E85D00 !important; }
+.tip-icon-wrap          { background: rgba(220,80,0,0.08) !important; border-color: rgba(220,80,0,0.22) !important; }
+.tip-icon               { stroke: #E85D00 !important; }
+
+.g-art-valley-flowers   { background-image: linear-gradient(180deg,rgba(161,140,209,0.30) 0%,rgba(10,10,30,0.40) 100%), url('../images/valley.jpg') !important; background-size:cover !important; background-position:center !important; }
+.g-art-pangong          { background-image: linear-gradient(180deg,rgba(26,58,110,0.30) 0%,rgba(10,10,30,0.40) 100%),  url('../images/pangong.jpg') !important; background-size:cover !important; background-position:center !important; }
+.g-art-varanasi-dawn    { background-image: linear-gradient(180deg,rgba(248,151,30,0.28) 0%,rgba(10,10,30,0.42) 100%),  url('../images/varanasi.jpg') !important; background-size:cover !important; background-position:center !important; }
+.g-art-rann-moon        { background-image: linear-gradient(180deg,rgba(45,42,74,0.30) 0%,rgba(230,220,240,0.20) 100%),  url('../images/hampi.jpg') !important; background-size:cover !important; background-position:center !important; }
+.g-art-kerala-backwaters{ background-image: linear-gradient(180deg,rgba(19,78,94,0.28) 0%,rgba(10,10,30,0.40) 100%),    url('../images/kerala.jpg') !important; background-size:cover !important; background-position:center !important; }
+.g-art-hampi-ruins      { background-image: linear-gradient(160deg,rgba(201,75,75,0.28) 0%,rgba(10,10,30,0.42) 100%),   url('../images/hampi.jpg') !important; background-size:cover !important; background-position:center !important; }
+.g-art-spiti-cold       { background-image: linear-gradient(180deg,rgba(200,214,227,0.25) 0%,rgba(10,10,30,0.40) 100%), url('../images/ladakh.jpg') !important; background-size:cover !important; background-position:center !important; }
+.g-art-sundarbans       { background-image: linear-gradient(160deg,rgba(13,61,31,0.35) 0%,rgba(10,10,30,0.42) 100%),    url('../images/hampi.jpg') !important; background-size:cover !important; background-position:center !important; }
+.g-art-meghalaya-falls  { background-image: linear-gradient(180deg,rgba(74,85,104,0.28) 0%,rgba(10,10,30,0.42) 100%),   url('../images/meghalaya.jpg') !important; background-size:cover !important; background-position:center !important; }
+.g-art-andaman-sea      { background-image: linear-gradient(180deg,rgba(0,131,176,0.25) 0%,rgba(10,10,30,0.40) 100%),   url('../images/andaman.jpg') !important; background-size:cover !important; background-position:center !important; }
+.g-art-rajasthan-dunes  { background-image: linear-gradient(160deg,rgba(247,151,30,0.28) 0%,rgba(10,10,30,0.40) 100%),  url('../images/rajasthan.jpg') !important; background-size:cover !important; background-position:center !important; }
+.g-art-rishikesh-river  { background-image: linear-gradient(180deg,rgba(26,107,58,0.28) 0%,rgba(10,10,30,0.40) 100%),   url('../images/rishikesh.jpg') !important; background-size:cover !important; background-position:center !important; }
+
+.contact-info h2        { color: #C8860A !important; }
+.contact-intro          { color: #666 !important; }
+.info-block h4          { color: #1A1A2E !important; }
+.info-block p           { color: #666 !important; }
+.info-icon              { background: rgba(220,80,0,0.08) !important; border-color: rgba(220,80,0,0.22) !important; }
+.info-icon svg          { stroke: #E85D00 !important; }
+.social-pill            { color: #555 !important; border-color: rgba(0,0,0,0.12) !important; }
+.social-pill:hover      { border-color: #E85D00 !important; color: #E85D00 !important; background: rgba(220,80,0,0.06) !important; }
+.contact-form-wrap      { background: #FFFFFF !important; border: 1px solid rgba(220,80,0,0.12) !important; }
+.form-group label       { color: #999 !important; }
+.form-group input,
+.form-group textarea    { background: transparent !important; color: #1A1A2E !important; border-bottom-color: rgba(0,0,0,0.15) !important; }
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: #BFB8B0 !important; }
+.form-group input:focus,
+.form-group textarea:focus { border-bottom-color: #E85D00 !important; }
+
+.footer {
+  background: linear-gradient(135deg, #1A1A2E 0%, #2D1E12 100%) !important;
+  border-top: 2px solid rgba(220,80,0,0.45) !important;
+}
+
+::-webkit-scrollbar-track  { background: #F2EBE3 !important; }
+::-webkit-scrollbar-thumb  { background: linear-gradient(180deg, #E85D00, #C44E00) !important; }
+
+#page-loader             { background: #FFFAF5 !important; }
+#page-loader .loader-text { color: #C8860A !important; }
+
+*:focus-visible          { outline-color: #E85D00 !important; }
+
+.photo-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  height: 280px;
+  gap: 0;
+  overflow: hidden;
+}
+.photo-strip-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.photo-strip-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  filter: brightness(0.85) saturate(1.1);
+}
+.photo-strip-item:hover img {
+  transform: scale(1.08);
+  filter: brightness(1) saturate(1.3);
+}
+.photo-strip-item .strip-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 1.2rem 0.8rem 0.7rem;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+.photo-strip-item:hover .strip-label {
+  transform: translateY(0);
+}
+@media (max-width: 768px) {
+  .photo-strip {
+    grid-template-columns: repeat(3, 1fr);
+    height: 200px;
+  }
+  .photo-strip-item:nth-child(4),
+  .photo-strip-item:nth-child(5) { display: none; }
+}
+@media (max-width: 480px) {
+  .photo-strip { grid-template-columns: repeat(2, 1fr); height: 180px; }
+  .photo-strip-item:nth-child(3) { display: none; }
+}
+
+.cta-section {
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
+  text-align: center;
+}
+.cta-section .cta-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(180deg, rgba(220,55,0,0.82) 0%, rgba(180,10,10,0.88) 100%),
+    url('../images/hampi.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.cta-section .cta-content {
+  position: relative;
+  z-index: 2;
+}
+.cta-section h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 2.6rem;
+  color: #FFFFFF !important;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+.cta-section p {
+  color: rgba(255,255,255,0.88) !important;
+  font-size: 1.1rem;
+  max-width: 520px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.8;
+}
+.cta-section .btn-primary {
+  background: #FFFFFF !important;
+  color: #D44E00 !important;
+  font-size: 1.05rem;
+  padding: 16px 44px;
+}
+
+.hero-bg {
+  background-image:
+    linear-gradient(160deg,
+      rgba(140,40,0,0.72) 0%,
+      rgba(220,100,0,0.60) 50%,
+      rgba(100,10,0,0.78) 100%
+    ),
+    url('../images/hampi.jpg') !important;
+  background-size: cover, cover !important;
+  background-position: center, center !important;
+  animation: heroZoom 22s ease-in-out infinite alternate !important;
+}
+@keyframes heroZoom {
+  from { transform: scale(1.00); }
+  to   { transform: scale(1.08); }
+}
+
+.card-art {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+.card-art img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.dest-card:hover .card-art img { transform: scale(1.07); }
+.card-art::before { z-index: 2; }
+
+.gallery-grid-new {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 260px;
+  gap: 5px;
+  margin-top: 2rem;
+}
+.gp {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.gp.gp-wide { grid-column: span 2; }
+.gp.gp-tall { grid-row:    span 2; }
+
+.gp img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.55s ease, filter 0.55s ease;
+  filter: brightness(0.88) saturate(1.1);
+}
+.gp:hover img {
+  transform: scale(1.07);
+  filter: brightness(1.0) saturate(1.25);
+}
+.gp-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, transparent 100%);
+  padding: 2.5rem 1.2rem 1rem;
+  transform: translateY(40%);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+.gp:hover .gp-caption { transform: translateY(0); opacity: 1; }
+.gp-caption h4 {
+  color: #FFFFFF !important;
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+.gp-caption p {
+  color: rgba(255,255,255,0.82) !important;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+@media (max-width: 1024px) {
+  .gallery-grid-new { grid-template-columns: repeat(2,1fr); grid-auto-rows: 220px; }
+  .gp.gp-wide { grid-column: span 1; }
+  .gp.gp-tall { grid-row: span 1; }
+}
+@media (max-width: 600px) {
+  .gallery-grid-new { grid-template-columns: 1fr 1fr; grid-auto-rows: 160px; }
+}
+
+.section-header h2 { font-size: 2.4rem !important; font-weight: 700 !important; color: #1A1A2E !important; }
+.section-header p  { font-size: 1.1rem !important; color: #555 !important; }
+.card-info h3      { font-size: 1.2rem !important; font-weight: 700 !important; color: #1A1A2E !important; }
+.card-info p       { font-size: 0.95rem !important; color: #555 !important; line-height: 1.6; }
+.dest-info h2      { font-size: 2.2rem !important; color: #1A1A2E !important; }
+.dest-info > p     { font-size: 1.05rem !important; color: #444 !important; line-height: 1.75; }
+.tip-card h3       { font-size: 1.15rem !important; font-weight: 700 !important; color: #1A1A2E !important; }
+.tip-list li       { font-size: 0.95rem !important; color: #4A4A4A !important; }
+
+.destinations-main {
+  background: #FFFAF5;
+}
+.dest-block {
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  margin-bottom: 3rem;
+  overflow: hidden;
+}
+.dest-details {
+  padding: 2.5rem !important;
+  background: #FFFFFF !important;
+}
+.dest-details h2 {
+  font-family: 'Cinzel', serif !important;
+  font-size: 2.4rem !important;
+  font-weight: 700 !important;
+  color: #1A1A2E !important;
+  margin-bottom: 0.3rem !important;
+  letter-spacing: 0.5px;
+}
+.dest-tagline {
+  font-size: 1.1rem !important;
+  color: #E85D00 !important;
+  font-style: italic;
+  font-weight: 500;
+  margin-bottom: 1.2rem !important;
+}
+.dest-tag {
+  display: inline-block;
+  background: #FFF0E0 !important;
+  color: #C04A00 !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 0.3rem 0.9rem !important;
+  border-radius: 20px !important;
+  border: 1px solid #FFD0A0;
+  margin-bottom: 0.8rem !important;
+}
+.dest-meta {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+.meta-item {
+  background: #FFF8F0 !important;
+  border: 1px solid #FFE0C0;
+  border-radius: 10px;
+  padding: 0.7rem 1.2rem !important;
+  min-width: 140px;
+}
+.meta-item strong {
+  display: block;
+  font-size: 0.7rem !important;
+  font-weight: 700 !important;
+  color: #C04A00 !important;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+.meta-item div {
+  font-size: 0.9rem !important;
+  color: #333 !important;
+  line-height: 1.5;
+}
+.dest-attractions {
+  margin-bottom: 1.2rem;
+}
+.dest-attractions h4,
+.dest-food h4 {
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  color: #C04A00 !important;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem !important;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid #FFD0A0;
+  display: inline-block;
+}
+.dest-attractions ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 0 1rem !important;
+}
+.dest-attractions ul li {
+  font-size: 0.95rem !important;
+  color: #333 !important;
+  padding: 0.35rem 0 0.35rem 1.2rem !important;
+  position: relative;
+  line-height: 1.5;
+  border-bottom: 1px solid #F5EDE0;
+}
+.dest-attractions ul li::before {
+  content: 'â–¸';
+  position: absolute;
+  left: 0;
+  color: #E85D00;
+  font-size: 0.8rem;
+}
+.dest-food {
+  margin-bottom: 1.2rem;
+}
+.food-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.food-tags span {
+  background: #FFF0E0 !important;
+  color: #8B3A00 !important;
+  border: 1px solid #FFD0A0 !important;
+  padding: 0.3rem 0.8rem !important;
+  border-radius: 20px !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+}
+.dest-story {
+  font-size: 1rem !important;
+  color: #444 !important;
+  line-height: 1.8 !important;
+  font-style: italic;
+  border-left: 3px solid #E85D00 !important;
+  padding-left: 1rem !important;
+  margin-top: 1.2rem !important;
+  background: #FFFAF5;
+  padding: 0.8rem 1rem !important;
+  border-radius: 0 8px 8px 0;
+}
+
+.dest-visual {
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+  background-size: cover !important;
+  background-position: center !important;
+}
+.card-jaipur.dest-visual  { background-image: url('../images/jaipur.jpg') !important; }
+.card-goa.dest-visual      { background-image: url('../images/goa.jpg') !important; }
+.card-varanasi.dest-visual { background-image: url('../images/varanasi.jpg') !important; }
+.card-kerala.dest-visual   { background-image: url('../images/kerala.jpg') !important; }
+.card-ladakh.dest-visual   { background-image: url('../images/ladakh.jpg') !important; }
+.card-rishikesh.dest-visual{ background-image: url('../images/rishikesh.jpg') !important; }
+.card-hampi.dest-visual    { background-image: url('../images/hampi.jpg') !important; }
+.card-kutch.dest-visual    { background-image: url('../images/kutch.jpg') !important; }
+.card-andaman.dest-visual  { background-image: url('../images/andaman.jpg') !important; }
+.card-meghalaya.dest-visual{ background-image: url('../images/meghalaya.jpg') !important; }
+
+.dest-visual .dest-visual-inner { display: none !important; }
+.dest-city-name {
+  position: absolute !important;
+  bottom: 1rem !important;
+  left: 1.2rem !important;
+  color: #FFFFFF !important;
+  font-family: 'Cinzel', serif !important;
+  font-size: 1.6rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 4px !important;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.7) !important;
+  z-index: 2;
+}
+.dest-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.55) 100%);
+  z-index: 1;
+}
+
+.card-jaipur  .card-art { background-image: linear-gradient(180deg,rgba(0,0,0,0.08) 0%,rgba(0,0,0,0.45) 100%),url('../images/jaipur.jpg') !important; background-size:cover !important; background-position:center !important; }
+.card-goa     .card-art { background-image: linear-gradient(180deg,rgba(0,0,0,0.08) 0%,rgba(0,0,0,0.45) 100%),url('../images/goa.jpg') !important; background-size:cover !important; background-position:center !important; }
+.card-varanasi .card-art { background-image: linear-gradient(180deg,rgba(0,0,0,0.08) 0%,rgba(0,0,0,0.45) 100%),url('../images/varanasi.jpg') !important; background-size:cover !important; background-position:center !important; }
+.card-kerala  .card-art { background-image: linear-gradient(180deg,rgba(0,0,0,0.08) 0%,rgba(0,0,0,0.45) 100%),url('../images/kerala.jpg') !important; background-size:cover !important; background-position:center !important; }
+.card-ladakh  .card-art { background-image: linear-gradient(180deg,rgba(0,0,0,0.08) 0%,rgba(0,0,0,0.45) 100%),url('../images/ladakh.jpg') !important; background-size:cover !important; background-position:center !important; }
+.card-rishikesh .card-art { background-image: linear-gradient(180deg,rgba(0,0,0,0.08) 0%,rgba(0,0,0,0.45) 100%),url('../images/rishikesh.jpg') !important; background-size:cover !important; background-position:center !important; }
+.card-hampi   .card-art { background-image: linear-gradient(180deg,rgba(0,0,0,0.08) 0%,rgba(0,0,0,0.45) 100%),url('../images/hampi.jpg') !important; background-size:cover !important; background-position:center !important; }
+.card-kutch   .card-art { background-image: linear-gradient(180deg,rgba(0,0,0,0.08) 0%,rgba(0,0,0,0.45) 100%),url('../images/kutch.jpg') !important; background-size:cover !important; background-position:center !important; }
+.card-andaman .card-art { background-image: linear-gradient(180deg,rgba(0,0,0,0.08) 0%,rgba(0,0,0,0.45) 100%),url('../images/andaman.jpg') !important; background-size:cover !important; background-position:center !important; }
+.card-meghalaya .card-art { background-image: linear-gradient(180deg,rgba(0,0,0,0.08) 0%,rgba(0,0,0,0.45) 100%),url('../images/meghalaya.jpg') !important; background-size:cover !important; background-position:center !important; }
+
+.hero-bg {
+  background-image:
+    linear-gradient(160deg, rgba(140,40,0,0.72) 0%, rgba(220,100,0,0.60) 50%, rgba(100,10,0,0.78) 100%),
+    url('../images/hampi.jpg') !important;
+}
