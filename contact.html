@@ -10,7 +10,7 @@
 <body>
 
 <nav class="navbar">
-  <div class="logo">Incredible <span class="logo-accent">India</span></div>
+  <a href="index.html" class="logo-brand"><svg class="logo-chakra" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" width="36" height="36" aria-hidden="true"><circle cx="22" cy="22" r="19.5" fill="rgba(0,0,128,0.07)" stroke="#000080" stroke-width="1.8"/><g stroke="#000080" stroke-width="0.85"><line x1="22" y1="4.5" x2="22" y2="19.5" transform="rotate(0 22 22)"/><line x1="22" y1="4.5" x2="22" y2="19.5" transform="rotate(15 22 22)"/><line x1="22" y1="4.5" x2="22" y2="19.5" transform="rotate(30 22 22)"/><line x1="22" y1="4.5" x2="22" y2="19.5" transform="rotate(45 22 22)"/><line x1="22" y1="4.5" x2="22" y2="19.5" transform="rotate(60 22 22)"/><line x1="22" y1="4.5" x2="22" y2="19.5" transform="rotate(75 22 22)"/><line x1="22" y1="4.5" x2="22" y2="19.5" transform="rotate(90 22 22)"/><line x1="22" y1="4.5" x2="22" y2="19.5" transform="rotate(105 22 22)"/><line x1="22" y1="4.5" x2="22" y2="19.5" transform="rotate(120 22 22)"/><line x1="22" y1="4.5" x2="22" y2="19.5" transform="rotate(135 22 22)"/><line x1="22" y1="4.5" x2="22" y2="19.5" transform="rotate(150 22 22)"/><line x1="22" y1="4.5" x2="22" y2="19.5" transform="rotate(165 22 22)"/><line x1="22" y1="4.5" x2="22" y2="19.5" transform="rotate(180 22 22)"/><line x1="22" y1="4.5" x2="22" y2="19.5" transform="rotate(195 22 22)"/><line x1="22" y1="4.5" x2="22" y2="19.5" transform="rotate(210 22 22)"/><line x1="22" y1="4.5" x2="22" y2="19.5" transform="rotate(225 22 22)"/><line x1="22" y1="4.5" x2="22" y2="19.5" transform="rotate(240 22 22)"/><line x1="22" y1="4.5" x2="22" y2="19.5" transform="rotate(255 22 22)"/><line x1="22" y1="4.5" x2="22" y2="19.5" transform="rotate(270 22 22)"/><line x1="22" y1="4.5" x2="22" y2="19.5" transform="rotate(285 22 22)"/><line x1="22" y1="4.5" x2="22" y2="19.5" transform="rotate(300 22 22)"/><line x1="22" y1="4.5" x2="22" y2="19.5" transform="rotate(315 22 22)"/><line x1="22" y1="4.5" x2="22" y2="19.5" transform="rotate(330 22 22)"/><line x1="22" y1="4.5" x2="22" y2="19.5" transform="rotate(345 22 22)"/></g><circle cx="22" cy="22" r="3.2" fill="#FF6B00"/></svg><div class="logo-text-wrap"><span class="logo-top">Incredible</span><span class="logo-main">India</span></div></a>
   <ul class="nav-links" id="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="destinations.html">Destinations</a></li>
@@ -203,5 +203,87 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in-view');io.unobserve(e.target);}
+    });
+  },{threshold:0.12});
+
+  document.querySelectorAll('.section-header,.footer,.contact-section').forEach(function(el){io.observe(el);});
+
+  document.querySelectorAll('.info-block').forEach(function(block,i){
+    block.style.opacity='0';
+    block.style.transform='translateX(-30px)';
+    block.style.transition='opacity 0.6s ease '+(i*0.12)+'s, transform 0.6s cubic-bezier(0.22,1,0.36,1) '+(i*0.12)+'s';
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          block.style.opacity='1';
+          block.style.transform='none';
+          obs.unobserve(block);
+        }
+      });
+    },{threshold:0.2});
+    obs.observe(block);
+  });
+
+  var formWrap=document.querySelector('.contact-form-wrap');
+  if(formWrap){
+    var fobs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          formWrap.style.animation='fadeSlideRight 0.75s cubic-bezier(0.22,1,0.36,1) 0.15s both';
+          fobs.unobserve(formWrap);
+        }
+      });
+    },{threshold:0.15});
+    fobs.observe(formWrap);
+  }
+
+  document.querySelectorAll('.social-pill').forEach(function(pill,i){
+    pill.style.opacity='0';
+    pill.style.transform='translateY(16px)';
+    pill.style.transition='opacity 0.5s ease '+(0.3+i*0.08)+'s, transform 0.5s cubic-bezier(0.34,1.56,0.64,1) '+(0.3+i*0.08)+'s';
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          pill.style.opacity='1';
+          pill.style.transform='none';
+          obs.unobserve(pill);
+        }
+      });
+    },{threshold:0.3});
+    obs.observe(pill);
+  });
+
+  document.querySelectorAll('.btn').forEach(function(btn){
+    btn.addEventListener('click',function(ev){
+      var r=btn.getBoundingClientRect();
+      var d=document.createElement('span');
+      var s=Math.max(r.width,r.height);
+      d.className='btn-ripple';
+      d.style.cssText='width:'+s+'px;height:'+s+'px;left:'+(ev.clientX-r.left-s/2)+'px;top:'+(ev.clientY-r.top-s/2)+'px;';
+      btn.appendChild(d);
+      setTimeout(function(){d.remove();},700);
+    });
+  });
+
+  var nav=document.querySelector('.navbar');
+  window.addEventListener('scroll',function(){
+    nav.classList.toggle('scrolled',window.scrollY>60);
+  },{passive:true});
+
+  var burger=document.getElementById('burger-btn');
+  var links=document.querySelector('.nav-links');
+  if(burger&&links){
+    burger.addEventListener('click',function(){
+      burger.classList.toggle('burger-active');
+      links.classList.toggle('nav-open');
+    });
+  }
+})();
+</script>
 </body>
 </html>
